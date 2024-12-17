@@ -1,0 +1,157 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(37, 34, 34);
+}
+.contanier{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.outer-box {
+    background-color: #fef5f5;
+    background: linear-gradient(to right, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+
+    padding: 60px 90px; /* Use this for your desired padding */
+    border-radius: 25px;
+    border: 10px solid;
+    position: relative; /* Ensure the pseudo-element is positioned correctly */
+}
+
+.outer-box::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(to right, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    z-index: -1; /* Place it behind the main content */
+    border-radius: 15px; /* Match the border-radius of the main element */
+    filter: blur(15px); /* Blur to simulate the shadow effect */
+}
+.outer-box h1{
+    margin-bottom: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+    font-style: italic;
+}
+.inbox{
+    width: 100%;
+    height: 50px;
+    flex-grow: 1;
+    font-size: 20px;
+    padding: 10px 30px;
+    border-radius: 20px;
+    border: 4px solid black;
+    margin-bottom: 30px;
+}
+.styled-button {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    background-color: #6ef456; /* Green background */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    color: black; /* Text color */
+    font-size: 18px; /* Text size */
+    cursor: pointer; /* Pointer cursor on hover */
+    box-shadow: 0 50px 40px rgba(19, 1, 1, 0); /* Box shadow */
+    transition: box-shadow 0.3s ease; /* Transition for shadow effect */
+}
+
+.styled-button:hover {
+    box-shadow: 0 20px 25px rgb(27, 1, 1); /* Increased shadow on hover */
+}
+#imgbox {
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 2s ease;
+}
+
+#imgbox img {
+    width: 100%;
+    padding: 10px 20px;
+}
+
+#imgbox.show-img {
+    max-height: 90%;
+    margin: 10px auto;
+    border: 2px solid black;
+    margin-bottom: 30px;
+}
+.error{
+    animation: shake 0.1s linear 10;
+}
+@keyframes shake {
+    0%{
+        transform: translateX(0);
+    }
+    25%{
+        transform: translateX(-2px);
+    }
+    50%{
+        transform: translateX(0);
+    }
+    75%{
+        transform: translateX(2px);
+    }
+    100%{
+        transform: translateX(2px);
+    }
+}
+@media (max-width: 1240px) {
+    .outer-box {
+        padding: 40px 60px; /* Adjust padding for smaller screens */
+        border-radius: 20px;
+    }
+
+    .inbox {
+        width: 100%;
+        height: 45px; /* Slightly reduce height */
+        font-size: 18px; /* Adjust font size */
+        padding: 8px 20px;
+    }
+
+    .styled-button {
+        padding: 8px 16px; /* Adjust button padding */
+        font-size: 16px; /* Adjust button font size */
+    }
+
+    #imgbox img {
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 800px) {
+    .outer-box {
+        padding: 20px 40px; /* Further adjust padding for smaller screens */
+        border-radius: 15px;
+    }
+
+    .inbox {
+        height: 40px; /* Further reduce height */
+        font-size: 16px; /* Further adjust font size */
+        padding: 6px 15px;
+    }
+
+    .styled-button {
+        padding: 6px 12px; /* Further adjust button padding */
+        font-size: 14px; /* Further adjust button font size */
+    }
+
+    #imgbox img {
+        padding: 6px 12px;
+    }
+}
